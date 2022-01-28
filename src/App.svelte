@@ -11,6 +11,7 @@
 		participantNames = [...participantNames, nextParticipant];
 		nextParticipant = undefined;
 	};
+	$: numParticipants = participantNames.length + 1;
 </script>
 {#if nextParticipant}
 	<div id="popup">
@@ -18,6 +19,7 @@
 		<button on:click={handleApprove}>入室許可</button>
 	</div>
 {/if}
+<div>参加者数: {numParticipants}</div>
 <div class="participant p1">
 	<span>参加者猫 (1) (自分)</span>
 	{#if visible}
