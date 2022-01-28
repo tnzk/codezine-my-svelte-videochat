@@ -1,7 +1,11 @@
 <script lang="ts">
 	let visible = true;
+	let participants = [
+		{ name: '参加者猫 (2)', video: true },
+		{ name: '参加者猫 (3)', video: true },
+		{ name: '参加者猫 (4)', video: true },
+	];
 </script>
-
 <div class="participant p1">
 	<span>参加者猫 (1) (自分)</span>
 	{#if visible}
@@ -10,18 +14,12 @@
 		<img src="https://via.placeholder.com/320x240/000000/FFFFFF/?text=Video%20OFF">
 	{/if}
 </div>
-<div class="participant">
-	<span>参加者猫 (2)</span>
-	<img src="https://placekitten.com/320/240?image=2">
-</div>
-<div class="participant">
-	<span>参加者猫 (3)</span>
-	<img src="https://placekitten.com/320/240?image=3">
-</div>
-<div class="participant">
-	<span>参加者猫 (4)</span>
-	<img src="https://placekitten.com/320/240?image=4">
-</div>
+{#each participants as participant, index}
+	<div class="participant">
+		<span>{participant.name}</span>
+		<img src="https://placekitten.com/320/240?image={index+2}">
+	</div>
+{/each}
 <div class="list-of-participants">
 	<ul>
 		<li>参加者猫 (1) (自分)</li>
