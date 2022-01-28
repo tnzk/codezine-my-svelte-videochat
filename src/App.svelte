@@ -3,7 +3,21 @@
 	let visible = true;
 	
 	let participantNames = [ '参加者猫 (2)', '参加者猫 (3)', '参加者猫 (4)'];
+	let nextParticipant;
+	setInterval(() => {
+		nextParticipant = `参加者猫(${participantNames.length+2})`;
+	}, 5000)
+	const handleApprove = () => {
+		participantNames = [...participantNames, nextParticipant];
+		nextParticipant = undefined;
+	};
 </script>
+{#if nextParticipant}
+	<div id="popup">
+		「{nextParticipant}」が待機中
+		<button on:click={handleApprove}>入室許可</button>
+	</div>
+{/if}
 <div class="participant p1">
 	<span>参加者猫 (1) (自分)</span>
 	{#if visible}
