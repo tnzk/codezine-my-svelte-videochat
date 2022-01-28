@@ -1,10 +1,8 @@
 <script lang="ts">
+	import Participant from './Participant.svelte'
 	let visible = true;
-	let participants = [
-		{ name: '参加者猫 (2)', video: true },
-		{ name: '参加者猫 (3)', video: true },
-		{ name: '参加者猫 (4)', video: true },
-	];
+	
+	let participantNames = [ '参加者猫 (2)', '参加者猫 (3)', '参加者猫 (4)'];
 </script>
 <div class="participant p1">
 	<span>参加者猫 (1) (自分)</span>
@@ -14,18 +12,15 @@
 		<img src="https://via.placeholder.com/320x240/000000/FFFFFF/?text=Video%20OFF">
 	{/if}
 </div>
-{#each participants as participant, index}
-	<div class="participant">
-		<span>{participant.name}</span>
-		<img src="https://placekitten.com/320/240?image={index+2}">
-	</div>
+{#each participantNames as name, index}
+	<Participant {name} catType={index} />
 {/each}
 <div class="list-of-participants">
 	<ul>
 		<li>参加者猫 (1) (自分)</li>
-		<li>参加者猫 (2)</li>
-		<li>参加者猫 (3)</li>
-		<li>参加者猫 (4)</li>
+		{#each participantNames as name}
+			<li>{name}</li>
+		{/each}
 	</ul>
 </div>
 <div class="control">
