@@ -1,6 +1,14 @@
+<script lang="ts">
+	let visible = true;
+</script>
+
 <div class="participant p1">
 	<span>参加者猫 (1) (自分)</span>
-	<img src="https://placekitten.com/320/240?image=1">
+	{#if visible}
+		<img src="https://placekitten.com/320/240?image=1">
+	{:else}
+		<img src="https://via.placeholder.com/320x240/000000/FFFFFF/?text=Video%20OFF">
+	{/if}
 </div>
 <div class="participant">
 	<span>参加者猫 (2)</span>
@@ -25,7 +33,7 @@
 <div class="control">
 	<button>退出</button>
 	<button>音声 OFF</button>
-	<button>ビデオ OFF</button>
+	<button on:click={() => visible = !visible}>ビデオ ON/OFF</button>
 	<button>画面共有</button>
 </div>
 
