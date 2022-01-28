@@ -12,6 +12,7 @@
 		nextParticipant = undefined;
 	};
 	$: numParticipants = participantNames.length + 1;
+	const handleNoImpl = () => alert('実装していません。実装してみてください！');
 </script>
 {#if nextParticipant}
 	<div id="popup">
@@ -40,10 +41,10 @@
 	</ul>
 </div>
 <div class="control">
-	<button>退出</button>
-	<button>音声 OFF</button>
+	<button on:click={handleNoImpl}>退出</button>
+	<button on:click={handleNoImpl}>音声 OFF</button>
 	<button on:click={() => visible = !visible}>ビデオ ON/OFF</button>
-	<button>画面共有</button>
+	<button on:click={handleNoImpl}>画面共有</button>
 </div>
 
 <style>
