@@ -1,30 +1,52 @@
-<script>
-	export let name;
-</script>
-
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<div class="participant p1">
+	<span>参加者猫 (1) (自分)</span>
+	<img src="https://placekitten.com/320/240?image=1">
+</div>
+<div class="participant">
+	<span>参加者猫 (2)</span>
+	<img src="https://placekitten.com/320/240?image=2">
+</div>
+<div class="participant">
+	<span>参加者猫 (3)</span>
+	<img src="https://placekitten.com/320/240?image=3">
+</div>
+<div class="participant">
+	<span>参加者猫 (4)</span>
+	<img src="https://placekitten.com/320/240?image=4">
+</div>
+<div class="list-of-participants">
+	<ul>
+		<li>参加者猫 (1) (自分)</li>
+		<li>参加者猫 (2)</li>
+		<li>参加者猫 (3)</li>
+		<li>参加者猫 (4)</li>
+	</ul>
+</div>
+<div class="control">
+	<button>退出</button>
+	<button>音声 OFF</button>
+	<button>ビデオ OFF</button>
+	<button>画面共有</button>
+</div>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	.participant {
+		position: relative;
+		float: left;
+		width: 320px;
+		height: 240px;
+		border: 1px solid black;
+		margin: 2px;
+		background: black;
 	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+	.participant span {
+		background: black;
+		color: white;
+		padding: 0 0.5rem;
+		position: absolute;
+		top: 0;
 	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	.list-of-participants {
+		clear: both;
 	}
 </style>
