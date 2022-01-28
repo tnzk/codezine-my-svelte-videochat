@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Participant from './Participant.svelte'
 	let visible = true;
+	let audio = true;
 	
 	let participantNames = [ '参加者猫 (2)', '参加者猫 (3)', '参加者猫 (4)'];
 	let nextParticipant;
@@ -22,7 +23,14 @@
 {/if}
 <div>参加者数: {numParticipants}</div>
 <div class="participant p1">
-	<span>参加者猫 (1) (自分)</span>
+	<span>
+		参加者猫 (1) (自分)
+		{#if audio}
+			🔉
+		{:else}
+			🔇
+		{/if}
+	</span>
 	{#if visible}
 		<img src="https://placekitten.com/320/240?image=1">
 	{:else}
@@ -42,7 +50,7 @@
 </div>
 <div class="control">
 	<button on:click={handleNoImpl}>退出</button>
-	<button on:click={handleNoImpl}>音声 OFF</button>
+	<button on:click={() => audio = !audio}>音声 OFF</button>
 	<button on:click={() => visible = !visible}>ビデオ ON/OFF</button>
 	<button on:click={handleNoImpl}>画面共有</button>
 </div>
