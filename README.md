@@ -23,6 +23,4 @@ a4a4e7e 参加者をコンポーネントに分割しました
 87f2847 Initial commit
 ```
 
-# ご連絡先
-
 わからないことやご質問等があれば、[Twitter](https://twitter.com/hmgchk) にお気軽にご連絡ください。
